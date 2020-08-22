@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta content="width=device-width,initial-scale=1" name="viewport"/>
+		<title>JS Sambahsa Pronunciator</title>
+		<script type="text/javascript" src="sambahsa_pronunciator.js"></script>
+		<style>
+			body {background-color: #8E9150;}
+			p {text-indent: 30px; text-align: justify; line-height: 30px;}
+			.box {background-color: #FBFBE7; width: 50%; margin: auto; margin-bottom: 10px; padding: 10px 20px;}
+			.code {background-color: #281818; color: #00FF26; padding: 3px; font-size: 0.8em;}
+			#title {font-size: 1.5em; font-weight: bold; text-align: center;}
+			#inputTextArea {display: block; margin: auto; width: 80%; height: 10em;}
+			#spt_outputTextArea {display: none; background-color: #E9EDED; margin: auto; margin-top: 20px; width: 80%; padding: 10px; text-align: justify;}
+			#ipa_outputTextArea {display: none; background-color: #E9EDED; margin: auto; margin-top: 20px; width: 80%; padding: 10px; text-align: justify;}
+			
+			@media screen and (max-width: 1280px)
+			{
+				.box {width: 80%;}
+			}
+			
+			@media screen and (max-width: 800px)
+			{
+				.box {width: 90%;}
+			}
+		</style>
+	</head>
+	<body>
+	<div class="box">
+	<div id="title">JS Sambahsa Pronunciator</div>
+	
+	<p>This is a script that generates the SPT and IPA transcriptions of words from the language Sambahsa Mundialect.</p>
+	
+	<p>You can easily insert this resource in any website. After inserting the reference of the script in the head of the HTML page, you can create a button with the following code:</p>
+	
+	<div class="code"><b>getWords (&#39;&lt;</b>id_where_is_the_input_of_the_user<b>&gt;&#39;, &#39;&lt;</b>id_of_the_div_of_the_spt_results<b>&gt;&#39;, &#39;&lt;</b>id_of_the_div_of_the_ipa_results<b>&gt;&#39;, &lt;</b>which_div&gt;<b>);</b></div>
+	
+	<p><i>In <b><i>&lt;which_div&gt;</i></b> you put either 0, 1 or 2. <b>0</b> will only show the SPT results, <b>1</b> will only show the IPA results and <b>2</b> will show both.</i></p>
+	
+	<textarea id="inputTextArea"></textarea>
+	<br>
+	<button type="button" onclick="getWords ('inputTextArea', 'spt_outputTextArea', 'ipa_outputTextArea', 2);" style="margin-right: 20px; display: inline;"><strong>BOTH</strong></button>
+	<button type="button" onclick="getWords ('inputTextArea', 'spt_outputTextArea', 'ipa_outputTextArea', 0);" style="margin-right: 20px; display: inline;"><strong>SPT</strong></button>
+	<button type="button" onclick="getWords ('inputTextArea', 'spt_outputTextArea', 'ipa_outputTextArea', 1);" style="margin-right: 20px; display: inline;"><strong>IPA</strong></button>
+	<div id="spt_outputTextArea"></div>
+	<div id="ipa_outputTextArea"></div>
+	</div>
+	</body>
+</html>
