@@ -10,6 +10,7 @@
 			.box {background-color: #FBFBE7; width: 50%; margin: auto; margin-bottom: 10px; padding: 10px 20px;}
 			.code {background-color: #281818; color: #00FF26; padding: 3px; font-size: 0.8em;}
 			#title {font-size: 1.5em; font-weight: bold; text-align: center;}
+			#version {font-size: 0.9em; font-weight: bold; font-style: italic; text-align: center;}
 			#inputTextArea {display: block; margin: auto; width: 80%; height: 10em;}
 			#spt_outputTextArea {display: none; background-color: #E9EDED; margin: auto; margin-top: 20px; width: 80%; padding: 10px; text-align: justify;}
 			#ipa_outputTextArea {display: none; background-color: #E9EDED; margin: auto; margin-top: 20px; width: 80%; padding: 10px; text-align: justify;}
@@ -29,13 +30,18 @@
 	<div class="box">
 	<div id="title">JS Sambahsa Pronunciator</div>
 	
+	<div id="version">v 1.01</div>
+	
 	<p>This is a script that generates the SPT and IPA transcriptions of words from the language Sambahsa Mundialect.</p>
 	
 	<p>You can easily insert this resource in any website. After inserting the reference of the script in the head of the HTML page, you can create a button with the following code:</p>
 	
 	<div class="code"><b>getWords (&#39;&lt;</b>id_where_is_the_input_of_the_user<b>&gt;&#39;, &#39;&lt;</b>id_of_the_div_of_the_spt_results<b>&gt;&#39;, &#39;&lt;</b>id_of_the_div_of_the_ipa_results<b>&gt;&#39;, &lt;</b>which_div&gt;<b>);</b></div>
+	<div style="text-align: center; font-style: italic; font-size: 0.8em;">If you have any question, just look the code of this HTML page</div>
 	
 	<p><i>In <b><i>&lt;which_div&gt;</i></b> you put either 0, 1 or 2. <b>0</b> will only show the SPT results, <b>1</b> will only show the IPA results and <b>2</b> will show both.</i></p>
+	
+	<p>If you find any incorrect transcription, please let me know, you can report <a href="https://github.com/hmslima/JS-Sambahsapronunciator/issues" target="_blank">here</a>. But before doing this, make sure that you are using the last version that can be downloaded from <a href="https://github.com/hmslima/JS-Sambahsapronunciator/releases/" target="_blank">here</a>.</p>
 	
 	<textarea id="inputTextArea"></textarea>
 	<br>
