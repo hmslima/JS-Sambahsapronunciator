@@ -1960,8 +1960,15 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 			else if (raw_word[count + 1] == 'r') {
 				spt_word += 'rr';
 				ipa_word += 'r';
-				count++; // For jumping the "u"
+				count++; // For jumping the "r"
 				console.log ("raw_word[" + count + "]" + " : rr");
+			}
+			// rh
+			else if (!(is_it_vowel(raw_word[count - 1])) && raw_word[count + 1] == 'h') {
+				spt_word += 'r';
+				ipa_word += 'r';
+				count++; // For jumping the "h"
+				console.log ("raw_word[" + count + "]" + " : rh");
 			}
 			// rl
 			else if (raw_word[count + 1] == 'l') {
