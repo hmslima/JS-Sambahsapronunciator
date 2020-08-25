@@ -1046,7 +1046,7 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				console.log ("raw_word[" + count + "]" + " : (0/C)yi...");
 			}
 			// Vi(a/e/o/u)
-			else if (!((raw_word[count - 2] == 'q' || raw_word[count - 2] == 'g') && raw_word[count - 1] == 'u') && is_it_vowel(raw_word[count - 1]) && (raw_word[count + 1] == 'a' || raw_word[count + 1] == 'e' || raw_word[count + 1] == 'o' || raw_word[count + 1] == 'u')) {
+			else if (!((raw_word[count - 2] == 'q' || raw_word[count - 2] == 'g') && raw_word[count - 1] == 'u') && !(raw_word[count - 1] == 'w' || raw_word[count - 1] == 'y') && is_it_vowel(raw_word[count - 1]) && (raw_word[count + 1] == 'a' || raw_word[count + 1] == 'e' || raw_word[count + 1] == 'o' || raw_word[count + 1] == 'u')) {
 				spt_word += 'y';
 				ipa_word += 'ɪ̯j';
 				console.log ("raw_word[" + count + "]" + " : Vi(a/e/o/u)");
@@ -1437,7 +1437,7 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				console.log ("raw_word[" + count + "]" + " : CwC");
 			}
 			// (0/C)wV
-			else if ((raw_word[count - 1] === undefined || is_it_consonant(raw_word[count - 1])) && is_it_vowel (raw_word[count + 1])) {
+			else if ((raw_word[count - 1] === undefined || is_it_consonant(raw_word[count - 1])) && is_it_vowel (raw_word[count + 1]) && !(raw_word[count + 1] == 'i' && is_it_vowel(raw_word[count + 2]))) {
 				spt_word += 'w';
 				if (raw_word[count - 1] == 'k' || raw_word[count - 1] == 'g') {
 					ipa_word += 'ʷ';
