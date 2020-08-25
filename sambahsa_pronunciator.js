@@ -8,7 +8,7 @@
 
 // Verifies if the give character is a vowel
 function is_it_vowel (character) {
-	if (character == 'a' || character == 'e' || character == 'i' || character == 'o' || character == 'u' || character == 'w' || character == 'y' || character == 'ä' || character == 'ɛ' || character == 'ë' || character == 'ə' || character == 'ö' || character == 'ø' || character == 'ü') {
+	if (character == 'a' || character == 'ɐ' || character == 'e' || character == 'i' || character == 'o' || character == 'u' || character == 'w' || character == 'y' || character == 'ä' || character == 'ɛ' || character == 'ë' || character == 'ə' || character == 'ö' || character == 'ø' || character == 'ü') {
 		return true;
 	}
 	else {
