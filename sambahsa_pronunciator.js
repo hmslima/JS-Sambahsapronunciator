@@ -2,7 +2,7 @@
 **********************************************************************
 *** Author: Henrique Matheus da Silva Lima
 *** License: MIT
-*** Version: 1.3
+*** Version: 1.35
 **********************************************************************
 *********************************************************************/
 
@@ -139,8 +139,8 @@ function is_there_more_than_one_vowel_ignoring_last_e (input)
 		}
 		else if (word[count] == 'e' && word[count + 1] === undefined)
 		{
-			// we0 || ye0
-			if (word[count - 1] == 'w' || word[count - 1] == 'y') { // recent code DELETE this comment after a lot of test
+			// we0 || ye0 || gne0
+			if (word[count - 1] == 'w' || word[count - 1] == 'y' || (word[count - 2] == 'g' && word[count - 1] == 'n')) { // recent code DELETE this comment after a lot of test
 				vowel++;
 			}
 			else {
@@ -149,17 +149,17 @@ function is_there_more_than_one_vowel_ignoring_last_e (input)
 		}
 		else if (word[count] == 'e' && (word[count + 1] == 's' || word[count + 1] == 't') && word[count + 2] === undefined)
 		{
-			if (word[count - 1] == 'y' || word[count - 1] == 'i' || word[count - 1] == 'w' || word[count - 1] == 'c' || word[count - 1] == 's')
+			if (word[count - 1] == 'y' || word[count - 1] == 'i' || word[count - 1] == 'w' || word[count - 1] == 'c' || word[count - 1] == 's' || (word[count - 2] == 'g' && word[count - 1] == 'n'))
 			{
 				// In this case the "e" appears; as a {ë}, but it still is a vowel
 				vowel++;
 			}
-			else if (word[count + 1] == 's' && (word[count - 1] == 'c' || word[count - 1] == 's' || word[count - 1] == 'z' || word[count - 1] == 'g' || word[count - 1] == 'j' || word[count - 1] == 'x' || (is_it_consonant(word[count - 2]) && word[count - 1] == 'r') || word[count - 1] == 'w' || word[count - 1] == 'y' || (word[count - 3] == 's' && word[count - 2] == 'c' && word[count - 1] == 'h') || (word[count - 2] == 't' && word[count - 1] == 'h') || (word[count - 2] == 'q' && word[count - 1] == 'u')))
+			else if (word[count + 1] == 's' && (word[count - 1] == 'c' || word[count - 1] == 's' || word[count - 1] == 'z' || word[count - 1] == 'g' || (word[count - 2] == 'g' && word[count - 1] == 'n') || word[count - 1] == 'j' || word[count - 1] == 'x' || (is_it_consonant(word[count - 2]) && word[count - 1] == 'r') || word[count - 1] == 'w' || word[count - 1] == 'y' || (word[count - 3] == 's' && word[count - 2] == 'c' && word[count - 1] == 'h') || (word[count - 2] == 't' && word[count - 1] == 'h') || (word[count - 2] == 'q' && word[count - 1] == 'u')))
 			{
 				// In this case the "e" appears; as a {ë}, but it still is a vowel
 				vowel++;
 			}
-			else if (word[count + 1] == 't' && (word[count - 1] == 'c' || word[count - 1] == 'z' || word[count - 1] == 'g' || word[count - 1] == 'n' || word[count - 1] == 'd' || word[count - 1] == 't' || (is_it_consonant(word[count - 2]) && word[count - 1] == 'r') || word[count - 1] == 'w' || word[count - 1] == 'y' || (word[count - 2] == 'q' && word[count - 1] == 'u')))
+			else if (word[count + 1] == 't' && (word[count - 1] == 'c' || word[count - 1] == 'z' || (word[count - 2] == 'g' && word[count - 1] == 'n') || word[count - 1] == 'd' || word[count - 1] == 't' || (is_it_consonant(word[count - 2]) && word[count - 1] == 'r') || word[count - 1] == 'w' || word[count - 1] == 'y' || (word[count - 2] == 'q' && word[count - 1] == 'u')))
 			{
 				// In this case the "e" appears; as a {ë}, but it still is a vowel
 				vowel++;
@@ -229,6 +229,8 @@ function is_there_more_than_one_vowel_ignoring_last_e (input)
 function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 	var spt_word_length = 0; // We may use this variable in the correction phase
 	var ipa_word_length = 0; // We may use this variable in the correction phase
+	
+	var is_there_an_au = false; // It's for correcting "au" words whose "a" must be marked, like in "au" and "daunet"
 	
 	var word_length = word.length;
 	var raw_word = word.split("");
@@ -500,6 +502,7 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				count++; // For jumping the "u"
 				count++; // For jumping the "h"
 				console.log ("raw_word[" + count + "]" + " : auhC");
+				is_there_an_au = true;
 			}
 			//au
 			else if (raw_word[count + 1] == 'u') {
@@ -507,6 +510,7 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				ipa_word += 'aʊ̯';
 				count++; // For jumping the "i"
 				console.log ("raw_word[" + count + "]" + " : au");
+				is_there_an_au = true;
 			}
 			else {
 				spt_word += 'a';
@@ -677,7 +681,7 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				}
 				else {
 					spt_word += 'eë';
-					ipa_word += '<strong><u>e</u></strong>ə';
+					ipa_word += 'eə';
 				}
 				count++; // For jumping the "e"
 				console.log ("raw_word[" + count + "]" + " : eeC");
@@ -855,14 +859,16 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				}
 				console.log ("raw_word[" + count + "]" + " : Cwe0")
 			}
-			// It is the first letter of the word
+			// The "e" is the first letter of the word
 			else if (count == 0) {
 				spt_word += 'e';
 				ipa_word += 'e';
+				console.log ("raw_word[" + count + "]" + " : The \"e\" is the first letter of the word")
 			}
-			// It is the last letter of the word and there is more other vowel
-			else if (is_there_more_than_one_vowel (word) && count == (word_length - 1)) {
+			// The "e" the last letter of the word, does not appears and there is more other vowel
+			else if (is_there_more_than_one_vowel (word) && count == (word_length - 1) && !(raw_word[count - 2] == 'g' && raw_word[count - 1] == 'n')) {
 				// Do nothing
+				console.log ("raw_word[" + count + "]" + " : The \"e\" the last letter of the word, does not appears and there is more other vowel")
 			}
 			// there is no more other vowel
 			else if (!is_there_more_than_one_vowel (word)) {
@@ -880,7 +886,7 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 					console.log ("raw_word[" + count + "]" + " : Visible -Ces");
 				}
 				// Visible -Cet
-				else if (raw_word[count + 1] == 't' && (raw_word[count - 1] == 'c' || raw_word[count - 1] == 'z' || raw_word[count - 1] == 'g' || raw_word[count - 1] == 'n' || raw_word[count - 1] == 'd' || raw_word[count - 1] == 't' || (is_it_consonant(raw_word[count - 2]) && raw_word[count - 1] == 'r') || raw_word[count - 1] == 'w' || raw_word[count - 1] == 'y' || (raw_word[count - 2] == 'q' && raw_word[count - 1] == 'u') || (raw_word[count - 2] == 'g' && raw_word[count - 1] == 'n') || (raw_word[count - 3] != 's' && raw_word[count - 2] == 'c' && raw_word[count - 1] == 'h') || (is_it_vowel(raw_word[count - 3]) && raw_word[count - 2] == 'm' && raw_word[count - 1] == 'n'))) {
+				else if (raw_word[count + 1] == 't' && (raw_word[count - 1] == 'c' || raw_word[count - 1] == 'z' || raw_word[count - 1] == 'g' || (raw_word[count - 2] == 'g' && raw_word[count - 1] == 'n') || raw_word[count - 1] == 'd' || raw_word[count - 1] == 't' || (is_it_consonant(raw_word[count - 2]) && raw_word[count - 1] == 'r') || raw_word[count - 1] == 'w' || raw_word[count - 1] == 'y' || (raw_word[count - 2] == 'q' && raw_word[count - 1] == 'u') || (raw_word[count - 2] == 'g' && raw_word[count - 1] == 'n') || (raw_word[count - 3] != 's' && raw_word[count - 2] == 'c' && raw_word[count - 1] == 'h') || (is_it_vowel(raw_word[count - 3]) && raw_word[count - 2] == 'm' && raw_word[count - 1] == 'n'))) {
 					spt_word += 'ë';
 					ipa_word += 'ə';
 					console.log ("raw_word[" + count + "]" + " : Visible -Cet");
@@ -927,11 +933,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				ipa_word += 'e';
 				console.log ("raw_word[" + count + "]" + " : eCCet(s)0 (invisible last e)")
 			}
-			// -eCCV
-			else if (is_it_consonant(raw_word[count + 1]) && is_it_consonant(raw_word[count + 2]) && is_it_vowel(raw_word[count + 3])) {
+			// -eC=CV
+			else if ((is_it_consonant(raw_word[count + 1]) && is_it_consonant(raw_word[count + 2]) && is_it_vowel(raw_word[count + 3])) && ((raw_word[count + 1] == raw_word[count + 2]) || (raw_word[count + 1] == 'c' && raw_word[count + 2] == 'k'))) {
 				spt_word += 'e';
 				ipa_word += 'e';
-				console.log ("raw_word[" + count + "]" + " : -eCCV");
+				console.log ("raw_word[" + count + "]" + " : -eC=CV");
 			}
 			// generic ë/ə
 			else {
@@ -984,6 +990,33 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				else {ipa_word += 'i';}
 				stress = true;
 				console.log ("raw_word[" + count + "]" + " : iCCCCV(s/0)");
+			}
+			// iCeC(s/0)
+			else if (is_it_consonant (raw_word[count + 1]) && raw_word[count + 2] == 'e' && is_it_consonant (raw_word[count + 3]) && (raw_word[count + 4] === undefined || (raw_word[count + 4] == 's' && raw_word[count + 5] === undefined && raw_word[count + 3] != 's'))) {
+				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {spt_word += 'I';}
+				else {spt_word += 'i';}
+				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {ipa_word += '<strong><u>i</u></strong>';}
+				else {ipa_word += 'i';}
+				stress = true;
+				console.log ("raw_word[" + count + "]" + " : iCeC(s/0)")
+			}
+			// iCCeC(s/0)
+			else if (is_it_consonant (raw_word[count + 1]) && is_it_consonant (raw_word[count + 2]) && raw_word[count + 3] == 'e' && is_it_consonant (raw_word[count + 4]) && (raw_word[count + 5] === undefined || (raw_word[count + 5] == 's' && raw_word[count + 6] === undefined && raw_word[count + 4] != 's'))) {
+				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {spt_word += 'I';}
+				else {spt_word += 'i';}
+				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {ipa_word += '<strong><u>i</u></strong>';}
+				else {ipa_word += 'i';}
+				stress = true;
+				console.log ("raw_word[" + count + "]" + " : iCCeC(s/0)")
+			}
+			// iCCCeC(s/0)
+			else if (is_it_consonant (raw_word[count + 1]) && is_it_consonant (raw_word[count + 2]) && is_it_consonant (raw_word[count + 3]) && raw_word[count + 4] == 'e' && is_it_consonant (raw_word[count + 5]) && (raw_word[count + 6] === undefined || (raw_word[count + 6] == 's' && raw_word[count + 7] === undefined && raw_word[count + 5] != 's'))) {
+				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {spt_word += 'I';}
+				else {spt_word += 'i';}
+				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {ipa_word += '<strong><u>i</u></strong>';}
+				else {ipa_word += 'i';}
+				stress = true;
+				console.log ("raw_word[" + count + "]" + " : iCCCeC(s/0)")
 			}
 			// iC=C(0/s0)
 			else if (is_it_consonant(raw_word[count + 1]) && (raw_word[count + 1] == raw_word[count + 2]) && (raw_word[count + 3] === undefined || (raw_word[count + 3] == 's' && raw_word[count + 4] === undefined))) {
@@ -1748,6 +1781,12 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				spt_word += 'dj';
 				ipa_word += 'd͡ʒ';
 			}
+			// gnC. For words like "kohgnt" whose pronunciation is {kO:nyët}
+			else if (raw_word[count + 1] == 'n' && is_it_consonant(raw_word[count + 2])) {
+				spt_word += 'nyë';
+				ipa_word += 'njə';
+				count++; // For jumping the "n"
+			}
 			// gn
 			else if (raw_word[count + 1] == 'n') {
 				spt_word += 'ny';
@@ -1786,8 +1825,8 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				ipa_word += 'ː';
 				console.log ("raw_word[" + count + "]" + " : VhC");
 			}
-			// Vhe0
-			else if (is_it_vowel (raw_word[count - 1]) && raw_word[count + 1] == 'e' && raw_word[count + 2] === undefined) {
+			// Vhe(s)0
+			else if (is_it_vowel (raw_word[count - 1]) && raw_word[count + 1] == 'e' && (raw_word[count + 2] === undefined || (raw_word[count + 2] == 's' && raw_word[count + 3] === undefined))) {
 				spt_word += ':';
 				ipa_word += 'ː';
 				console.log ("raw_word[" + count + "]" + " : Vhe0");
@@ -1956,6 +1995,14 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				ipa_word += 'ʀ';
 				console.log ("raw_word[" + count + "]" + " : rV");
 			}
+			// rrh
+			else if (raw_word[count + 1] == 'r' && raw_word[count + 2] == 'h') {
+				spt_word += 'rr';
+				ipa_word += 'r';
+				count++; // For jumping the "r"
+				count++; // For jumping the "h"
+				console.log ("raw_word[" + count + "]" + " : rrh");
+			}
 			// rr
 			else if (raw_word[count + 1] == 'r') {
 				spt_word += 'rr';
@@ -1965,10 +2012,17 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 			}
 			// rh
 			else if (!(is_it_vowel(raw_word[count - 1])) && raw_word[count + 1] == 'h') {
-				spt_word += 'r';
+				spt_word += 'rr';
 				ipa_word += 'r';
 				count++; // For jumping the "h"
 				console.log ("raw_word[" + count + "]" + " : rh");
+			}
+			// Vrh0
+			else if (is_it_vowel(raw_word[count - 1]) && raw_word[count + 1] == 'h' && raw_word[count + 2] === undefined) {
+				spt_word += 'rr';
+				ipa_word += 'r';
+				count++; // For jumping the "h"
+				console.log ("raw_word[" + count + "]" + " : Vrh0");
 			}
 			// rl
 			else if (raw_word[count + 1] == 'l') {
@@ -1989,6 +2043,12 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				}				
 				count++; // For jumping the "l"
 				
+			}
+			// buggy -Vrr0
+			else if (is_it_vowel(raw_word[count - 2]) && raw_word[count - 1] == 'r' && raw_word[count + 1] === undefined) {
+				spt_word += 'rr';
+				console.log ("raw_word[" + count + "]" + " : buggy -Vrr0");
+				ipa_word += 'ʀ';
 			}
 			else {
 				spt_word += 'r';
@@ -2168,6 +2228,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		// console.log ("> raw_word[" + count + "]" + " = the value of stress is " + stress);
 	}
 	
+	if (!stress) {console.log(word + " has no stressed vowel");}
+	if (is_there_more_than_one_vowel_ignoring_last_e (word)) {console.log(word + " DO has more than one vowel ignoring last non pronounced e");}
+	else {console.log(word + " has NO more than one vowel ignoring last non pronounced e");}
+	
+	
 	/***************************************************************
 	****************************************************************
 	****************************************************************
@@ -2176,7 +2241,7 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 	****************************************************************
 	***************************************************************/
 	
-	if (!(stress) && (is_there_more_than_one_vowel_ignoring_last_e (word)))
+	if (!(stress) && ((is_there_more_than_one_vowel_ignoring_last_e (word)) || is_there_an_au))
 	{
 		console.log ("## The word " + word + " entered the correction phase ##");
 		spt_word_length = spt_word.length;
@@ -2229,12 +2294,6 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 					console.log ("#Correction: spt_word[" + count + "]" + " : I");
 					break;
 				}
-				else if (spt_word[count] == 'i' && spt_word[count - 1] == 'w')
-				{
-					spt_word[count] = 'I';
-					console.log ("#Correction: spt_word[" + count + "]" + " : I (iw)");
-					break;
-				}
 				else if (spt_word[count] == 'o' && !(spt_word[count - 1] == 'e') && !(spt_word[count - 1] == 'a') && !(spt_word[count + 1] == 's' && spt_word[count + 2] === undefined) && !(spt_word[count + 1] == 'm' && (spt_word[count + 3] == 'n' || spt_word[count + 4] == 'n') && (spt_word[count + 4] == 't' || spt_word[count + 5] == 't') && (((spt_word[count + 5] == 's' || spt_word[count + 6] == 's') && (spt_word[count + 6] === undefined || spt_word[count + 7] === undefined)) || (spt_word[count + 4] === undefined || spt_word[count + 6] === undefined)) && ((raw_word[raw_word.strlen - 4] == 'm' && raw_word[raw_word.strlen - 3] == 'e' && raw_word[raw_word.strlen - 2] == 'n' && raw_word[raw_word.strlen - 1] == 't') || (raw_word[raw_word.strlen - 5] == 'm' && raw_word[raw_word.strlen - 4] == 'e' && raw_word[raw_word.strlen - 3] == 'n' && raw_word[raw_word.strlen - 2] == 't' && raw_word[raw_word.strlen - 1] == 's')) && (is_it_vowel(spt_word[count - 2]) || is_it_vowel(spt_word[count - 3]) || is_it_vowel(spt_word[count - 4]))))
 				{
 					spt_word[count] = 'O';
@@ -2247,13 +2306,13 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 					console.log ("#Correction: spt_word[" + count + "]" + " : Ö");
 					break;
 				}
-				else if (spt_word[count] == 'u' && !(spt_word[count - 1] == 'a') && !(spt_word[count - 1] == 'e') && !(spt_word[count - 1] == 'o') && !(raw_word[count - 3] == 'w' || raw_word[count - 2] == 'w' || raw_word[count - 1] == 'w' || raw_word[count] == 'w' || raw_word[count + 1] == 'w' || raw_word[count + 2] == 'w' || raw_word[count + 3] == 'w') && !(spt_word[count + 1] == 'm' && spt_word[count + 2] === undefined) && !(spt_word[count + 1] == 's' && spt_word[count + 2] === undefined))
+				else if (spt_word[count] == 'u' && !(spt_word[count - 1] == 'a') && !(spt_word[count - 1] == 'e') && !(spt_word[count - 1] == 'o') && !(spt_word[count + 1] == 'm' && spt_word[count + 2] === undefined) && !(spt_word[count + 1] == 's' && spt_word[count + 2] === undefined))
 				{
 					spt_word[count] = 'U';
 					console.log ("#Correction: spt_word[" + count + "]" + " : U");
 					break;
 				}
-				else if (spt_word[count] == 'ü' && !(spt_word[count - 1] == 'a') && !(spt_word[count - 1] == 'e') && !(spt_word[count - 1] == 'o') && !(raw_word[count - 3] == 'w' || raw_word[count - 2] == 'w' || raw_word[count - 1] == 'w' || raw_word[count] == 'w' || raw_word[count + 1] == 'w' || raw_word[count + 2] == 'w' || raw_word[count + 3] == 'w') && !(spt_word[count + 1] == 'm' && spt_word[count + 2] === undefined) && !(spt_word[count + 1] == 's' && spt_word[count + 2] === undefined) && /*ule*/!((spt_word[count + 1] == 'l' && spt_word[count + 2] === undefined) || (spt_word[count + 1] == 'l' && spt_word[count + 2] == 's' && spt_word[count + 3] === undefined)))
+				else if (spt_word[count] == 'ü' && !(spt_word[count - 1] == 'a') && !(spt_word[count - 1] == 'e') && !(spt_word[count - 1] == 'o') && !(spt_word[count + 1] == 'm' && spt_word[count + 2] === undefined) && !(spt_word[count + 1] == 's' && spt_word[count + 2] === undefined) && /*ule*/!((spt_word[count + 1] == 'l' && spt_word[count + 2] === undefined) || (spt_word[count + 1] == 'l' && spt_word[count + 2] == 's' && spt_word[count + 3] === undefined)))
 				{
 					spt_word[count] = 'Ü';
 					console.log ("#Correction: spt_word[" + count + "]" + " : Ü");
@@ -2320,12 +2379,6 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 					console.log ("#Correction: ipa_word[" + count + "]" + " : I");
 					break;
 				}
-				else if (ipa_word[count] == 'i' && ipa_word[count - 1] == 'w')
-				{
-					ipa_word[count] = '<strong><u>i</u></strong>';
-					console.log ("#Correction: ipa_word[" + count + "]" + " : i (iw)");
-					break;
-				}
 				else if (ipa_word[count] == 'o' && !(ipa_word[count - 1] == 'e') && !(ipa_word[count - 1] == 'a') && !(ipa_word[count + 1] == 's' && ipa_word[count + 2] === undefined) && !(ipa_word[count + 1] == 'm' && (ipa_word[count + 3] == 'n' || ipa_word[count + 4] == 'n') && (ipa_word[count + 4] == 't' || ipa_word[count + 5] == 't') && (((ipa_word[count + 5] == 's' || ipa_word[count + 6] == 's') && (ipa_word[count + 6] === undefined || ipa_word[count + 7] === undefined)) || (ipa_word[count + 4] === undefined || ipa_word[count + 6] === undefined)) && ((raw_word[raw_word.strlen - 4] == 'm' && raw_word[raw_word.strlen - 3] == 'e' && raw_word[raw_word.strlen - 2] == 'n' && raw_word[raw_word.strlen - 1] == 't') || (raw_word[raw_word.strlen - 5] == 'm' && raw_word[raw_word.strlen - 4] == 'e' && raw_word[raw_word.strlen - 3] == 'n' && raw_word[raw_word.strlen - 2] == 't' && raw_word[raw_word.strlen - 1] == 's')) && (is_it_vowel(ipa_word[count - 2]) || is_it_vowel(ipa_word[count - 3]) || is_it_vowel(ipa_word[count - 4]))))
 				{
 					ipa_word[count] = '<strong><u>o</u></strong>';
@@ -2338,13 +2391,13 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 					console.log ("#Correction: ipa_word[" + count + "]" + " : ø");
 					break;
 				}
-				else if (ipa_word[count] == 'u' && !(ipa_word[count - 1] == 'a') && !(ipa_word[count - 1] == 'e') && !(ipa_word[count - 1] == 'o') && !(raw_word[count - 3] == 'w' || raw_word[count - 2] == 'w' || raw_word[count - 1] == 'w' || raw_word[count] == 'w' || raw_word[count + 1] == 'w' || raw_word[count + 2] == 'w' || raw_word[count + 3] == 'w') && !(ipa_word[count + 1] == 'm' && ipa_word[count + 2] === undefined) && !(ipa_word[count + 1] == 's' && ipa_word[count + 2] === undefined))
+				else if (ipa_word[count] == 'u' && !(ipa_word[count - 1] == 'a') && !(ipa_word[count - 1] == 'e') && !(ipa_word[count - 1] == 'o') && !(ipa_word[count + 1] == 'm' && ipa_word[count + 2] === undefined) && !(ipa_word[count + 1] == 's' && ipa_word[count + 2] === undefined))
 				{
 					ipa_word[count] = '<strong><u>u</u></strong>';
 					console.log ("#Correction: ipa_word[" + count + "]" + " : u");
 					break;
 				}
-				else if (ipa_word[count] == 'y' && !(ipa_word[count - 1] == 'a') && !(ipa_word[count - 1] == 'e') && !(ipa_word[count - 1] == 'o') && !(raw_word[count - 3] == 'w' || raw_word[count - 2] == 'w' || raw_word[count - 1] == 'w' || raw_word[count] == 'w' || raw_word[count + 1] == 'w' || raw_word[count + 2] == 'w' || raw_word[count + 3] == 'w') && !(ipa_word[count + 1] == 'm' && ipa_word[count + 2] === undefined) && !(ipa_word[count + 1] == 's' && ipa_word[count + 2] === undefined) && /*ule*/!((spt_word[count + 1] == 'l' && spt_word[count + 2] === undefined) || (spt_word[count + 1] == 'l' && spt_word[count + 2] == 's' && spt_word[count + 3] === undefined)))
+				else if (ipa_word[count] == 'y' && !(ipa_word[count - 1] == 'a') && !(ipa_word[count - 1] == 'e') && !(ipa_word[count - 1] == 'o') && !(ipa_word[count + 1] == 'm' && ipa_word[count + 2] === undefined) && !(ipa_word[count + 1] == 's' && ipa_word[count + 2] === undefined) && /*ule*/!((spt_word[count + 1] == 'l' && spt_word[count + 2] === undefined) || (spt_word[count + 1] == 'l' && spt_word[count + 2] == 's' && spt_word[count + 3] === undefined)))
 				{
 					ipa_word[count] = '<strong><u>y</u></strong>';
 					console.log ("#Correction: ipa_word[" + count + "]" + " : y");
@@ -2466,7 +2519,12 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 	else if (word == "africa") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "Afrika";
-		ipa_word = "<strong><u>a</u></strong>ʀɪkɐ";
+		ipa_word = "<strong><u>a</u></strong>fʀɪkɐ";
+	}
+	else if (word == "africas") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "Afrikas";
+		ipa_word = "<strong><u>a</u></strong>fʀɪkɐs";
 	}
 	else if (word == "alecs") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -2487,6 +2545,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "amErika";
 		ipa_word = "am<strong><u>e</u></strong>ʀikɐ";
+	}
+	else if (word == "americas") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "amErikas";
+		ipa_word = "am<strong><u>e</u></strong>ʀikɐs";
 	}
 	else if (word == "arrest") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -2527,11 +2590,6 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "asIst";
 		ipa_word = "as<strong><u>i</u></strong>st";
-	}
-	else if (word == "au") {
-		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
-		spt_word = "Ao";
-		// Id IPA transcription is not necessary
 	}
 	else if (word == "b") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -3028,6 +3086,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "divIs";
 		ipa_word = "div<strong><u>i</u></strong>s";
 	}
+	else if (word == "diwid") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "diwId";
+		ipa_word = "diw<strong><u>i</u></strong>d";
+	}
 	else if (word == "dna") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "de en a";
@@ -3336,6 +3399,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "kiwI";
 		ipa_word = "kiw<strong><u>i</u></strong>";
 	}
+	else if (word == "km") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "ka em";
+		ipa_word = "ka em";
+	}
 	else if (word == "kiwis") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "kiwIs";
@@ -3385,31 +3453,6 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "en";
 		ipa_word = "en";
-	}
-	else if (word == "naudh") {
-		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
-		spt_word = "nAod";
-		// Id IPA transcription is not necessary
-	}
-	else if (word == "naudhs") {
-		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
-		spt_word = "nAods";
-		// Id IPA transcription is not necessary
-	}
-	else if (word == "naudht") {
-		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
-		spt_word = "nAods";
-		// Id IPA transcription is not necessary
-	}
-	else if (word == "naut") {
-		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
-		spt_word = "nAot";
-		// Id IPA transcription is not necessary
-	}
-	else if (word == "nauts") {
-		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
-		spt_word = "nAots";
-		// Id IPA transcription is not necessary
 	}
 	else if (word == "negleg") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -3580,6 +3623,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "pArlamënts";
 		ipa_word = "p<strong><u>a</u></strong>ʁlamənts";
+	}
+	else if (word == "perfect") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "përfEkt";
+		ipa_word = "pəʀf<strong><u>e</u></strong>kt";
 	}
 	else if (word == "perigleg") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");

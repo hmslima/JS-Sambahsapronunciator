@@ -1,0 +1,306 @@
+access {aktsEs}
+accuset {akÜzt}
+addeih {adE:y}
+affaire {af(f)Är}
+affaires {af(f)Ärs}
+alcohol {alkohOl}
+alien {alyEn}
+allie {alI:}
+alliet {alyEt}
+ambient {ambyEnt}
+anesthesia {anëstEzya}
+anthrax {an§rAks}
+associeit {asotsyEyt}
+augos {Aogos}
+aurphones {aorfOns}
+Australia {aostrAlya}
+bah {ba:}
+bihe {bi:}
+bouquete {bu:kEt}
+bureau {bürO:}
+canther {kAn§ër}
+cereal {tsërëAl}
+Christ {krist}
+claviature {klavyatÜr}
+clientele {klyentEl}
+crimes {krims}
+continent {kontInënt} 
+corcuksnest {korkUksnëst}
+demonstre {dëmOnstr(ë)}
+different {difErënt}
+dinegh {dInëg}
+dumeb {dÜmëb}
+eet {Eët}
+eih {e:y}
+emigrant {emigrAnt}
+enderkweiten {endërkwEytën}
+eust {öst}
+evacue {evakÜ:}
+fablieau {fabliO:}
+faire {fär}
+faires {färs}
+fianceo {fyantsEo}
+fianceos {fyantsEos}
+finesd {fInësd}
+firasat {firazAt}
+gandul {gandUl}
+garuy {garUy}
+gep {djep}
+ginchu {djIntcu}
+glanez {glAnëz}
+gnoh {nyo:}
+gordos {gOrdos}
+gouverne {gu:vErn}
+gouvernement {gu:vErnëmënt}
+guranew {gurAnëw}
+habe {hab}
+hehlp {he:lp}
+hellen {hElën}
+hotel {hotEl}
+ieu {yö}
+incandescent {inkandEsënt}
+incandescente {inkandësEnt}
+insule {Insül}
+insules {Insüls}
+interethnic {intërE§nik}
+jaal {jaAl}
+jamiyen {jamIyën}
+kayak {kayAk}
+kheiss {qeys}
+kibrit {kIbrit}
+kierey {kyerEy}
+kmehen {kmEhën}
+kohlen {kO:lën}
+kussen {kUsën}
+kwinew {kwInëw}
+lambhel {lAmbël}
+linak {linAk}
+linakw {linAkw}
+linek {lInëk}
+lineku {linEku}
+linekw {lInëkw}
+linekwe {linEkwë}
+linekwmos {linEkumos}
+linekwms {linEkums}
+linekwnt {linEkunt}
+linekwo {linEkwo}
+linekws {linEkus}
+linekwt {linEkut}
+linekwte {linEkut}
+linkwes {lInkwës}
+linkwmos {lInkumos}
+linkwms {lInkums}
+linkwnt {lInkunt}
+linkwo {lInkwo}
+linkws {lInkus}
+linkwt {lInkut}
+linkwte {lInkut}
+mecret {mEkrët}
+merit {mErit}
+monte {mont}
+moor {moOr}
+mundialect {mundyAlëkt}
+nest {nest}
+november {novEmbër}
+ocean {ots(ë)An}
+oeti {Oyti}
+okwi {Okwi}
+ouvert {U:vërt}
+permission {përmisyOn}
+perry {pEr(r)i}
+peruca {përUka}
+plateau {platO:}
+plateaus {platO:s}
+philosophia {filozOfya}
+pregen {prEdjën}
+prient {pryent}
+prodah {prodA:}
+quis {kis}
+quod {kwod}
+reling {rEling}
+resignet {rëzInyët}
+sambahsa {sambA:sa}
+scafold {skafOLd}
+schebeck {cëbEk}
+schives {civz}
+science {syents}
+sehkwnt {sE:kunt}
+shienciu {xyEntsyu}
+siuk {syuk}
+sofa {sOfa} 
+studyent {stUdyënt}
+studyents {stUdyënts}
+studient {studyEnt}
+studients {studyEnts}
+suadin {swadIn}
+taslime {taslIm}
+tawsiend {tawsyEnd}
+territorium {territOryum}
+tranchee {trantcEë}
+tsui {tswi}
+udtwac {udtwAk}
+uperlites {üpërlIts}
+urgence {urdjEnts}
+urgences {urdjEntsës}
+vergihes {vërdjI:s}
+vrehsch {vre:c}
+wakea {wakEa}
+wehrgeih {we:rdjE:y}
+xiongbu {ksyOngbu}
+yoinkjiae {yoynkjiAy}
+zoo {dzOo}
+
+
+--------------------------------------------------------------
+
+access
+accuset
+addeih
+affaire
+affaires
+alcohol
+alien
+allie
+alliet
+ambient
+anesthesia
+anthrax
+associeit
+augos
+aurphones
+Australia
+bah
+bihe
+bouquete
+bureau
+canther
+cereal
+Christ
+claviature
+clientele
+crimes
+continent
+corcuksnest
+demonstre
+different
+dinegh
+dumeb
+eet
+eih
+emigrant
+enderkweiten
+eust
+evacue
+fablieau
+faire
+faires
+fianceo
+fianceos
+finesd
+firasat
+gandul
+garuy
+gep
+ginchu
+glanez
+gnoh
+gordos
+gouverne
+gouvernement
+guranew
+habe
+hehlp
+hellen
+hotel
+ieu
+incandescent
+incandescente
+insule
+insules
+interethnic
+jaal
+jamiyen
+kayak
+kheiss
+kibrit
+kierey
+kmehen
+kohlen
+kussen
+kwinew
+lambhel
+linak
+linakw
+linek
+lineku
+linekw
+linekwe
+linekwmos
+linekwms
+linekwnt
+linekwo
+linekws
+linekwt
+linekwte
+linkwes
+linkwmos
+linkwms
+linkwnt
+linkwo
+linkws
+linkwt
+linkwte
+mecret
+merit
+monte
+moor
+mundialect
+nest
+november
+ocean
+oeti
+okwi
+ouvert
+permission
+perry
+peruca
+plateau
+plateaus
+philosophia
+pregen
+prient
+prodah
+quiss
+quod
+reling
+resignet
+sambahsa
+scafold
+schebeck
+schives
+science
+sehkwnt
+shienciu
+siuk
+sofa
+studyent
+studyents
+studient
+studients
+suadin
+taslime
+tawsiend
+territorium
+tranchee
+tsui
+udtwac
+uperlites
+urgence
+urgences
+vergihes
+vrehsch
+wakea
+wehrgeih
+xiongbu
+yoinkjiae
+zoo
