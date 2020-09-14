@@ -2,7 +2,7 @@
 **********************************************************************
 *** Author: Henrique Matheus da Silva Lima ***************************
 *** License: MIT *****************************************************
-*** Version: 1.65 ****************************************************
+*** Version: 1.67 ****************************************************
 **********************************************************************
 *********************************************************************/
 
@@ -1505,12 +1505,10 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				console.log ("raw_word[" + count + "]" + " : u(a/o/i)");
 			}
 			// ueu
-			else if (raw_word[count - 1] != 'q' && raw_word[count + 1] == 'e') {	
-				if (raw_word[count + 2] == 'u') {
-						spt_word += 'ü:';
-						ipa_word += 'y';
-						console.log ("raw_word[" + count + "]" + " : this is the first \"u\" of \"ueu\"");
-				}	
+			else if (raw_word[count - 1] != 'q' && raw_word[count + 1] == 'e' && raw_word[count + 2] == 'u') {	
+				spt_word += 'ü:';
+				ipa_word += 'y';
+				console.log ("raw_word[" + count + "]" + " : this is the first \"u\" of \"ueu\"");
 			}			
 			// ue
 			else if (raw_word[count - 1] != 'q' && raw_word[count + 1] == 'e') {				
