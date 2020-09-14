@@ -2,7 +2,7 @@
 **********************************************************************
 *** Author: Henrique Matheus da Silva Lima ***************************
 *** License: MIT *****************************************************
-*** Version: 1.60 ****************************************************
+*** Version: 1.65 ****************************************************
 **********************************************************************
 *********************************************************************/
 
@@ -600,8 +600,27 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				count++; // For jumping the following consonant
 				console.log ("raw_word[" + count + "]" + " : eC=C(0/s)");
 			}
+			// e[C=C]C0 . for words like "succeddt"
+			else if (is_it_consonant(raw_word[count + 1]) && (raw_word[count + 1] == raw_word[count + 2]) && is_it_consonant(raw_word[count + 3]) && raw_word[count + 4] === undefined) {
+				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {spt_word += 'E';}
+				else {spt_word += 'e';}
+				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {ipa_word += '<strong><u>e</u></strong>';}
+				else {ipa_word += 'e';}
+				stress = true;
+				count++; // For jumping the following consonant
+				console.log ("raw_word[" + count + "]" + " : e[C=C]C0");
+			}
 			// eck(0/s0)
 			else if (raw_word[count + 1] == 'c' && raw_word[count + 2] == 'k' && (raw_word[count + 3] === undefined || (raw_word[count + 3] == 's' && raw_word[count + 4] === undefined))) {
+				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {spt_word += 'E';}
+				else {spt_word += 'e';}
+				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {ipa_word += '<strong><u>e</u></strong>';}
+				else {ipa_word += 'e';}
+				stress = true;
+				console.log ("raw_word[" + count + "]" + " : eck(0/s)");
+			}
+			// eckC0
+			else if (raw_word[count + 1] == 'c' && raw_word[count + 2] == 'k' && is_it_consonant(raw_word[count + 3]) && raw_word[count + 4] === undefined) {
 				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {spt_word += 'E';}
 				else {spt_word += 'e';}
 				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {ipa_word += '<strong><u>e</u></strong>';}
@@ -1332,15 +1351,15 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		***************************************************************/
 	
 		else if (raw_word[count] == 'u') {
-			//uCe
+			// uCe
 			if ((is_it_consonant (raw_word[count + 1]) || raw_word[count + 1] == 'w') && (raw_word[count + 2] == 'e')) {
-				//ule(0/s0)
+				//ule(s)0
 				if (raw_word[count + 1] == 'l' && (raw_word[count + 3] === undefined || (raw_word[count + 3] == 's' && raw_word[count + 4] === undefined))) {
 					spt_word += 'ü';
 					ipa_word += 'y';
 					console.log ("raw_word[" + count + "]" + " : ule(s)0");
 				}
-				//uCe(0/s0)
+				// uCe(s)0
 				else if ((raw_word[count + 3] === undefined || (raw_word[count + 3] == 's' && raw_word[count + 4] === undefined))) {
 					stress = true;
 					if (is_there_more_than_one_vowel_ignoring_last_e (word)) {
@@ -1350,14 +1369,41 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 					else {
 						spt_word += 'ü';
 						ipa_word += 'y';	
-					}					
+					}
+					console.log ("raw_word[" + count + "]" + " : uCe(s)0");			
 				}
-				//uCe...
+				// uCeC(s)0
+				else if (is_it_consonant (raw_word[count + 3]) && (raw_word[count + 4] === undefined || (raw_word[count + 4] == 's' && raw_word[count + 5] === undefined))) {
+					stress = true;
+					if (is_there_more_than_one_vowel_ignoring_last_e (word)) {
+						spt_word += 'Ü';
+						ipa_word += '<strong><u>y</u></strong>';	
+					}
+					else {
+						spt_word += 'ü';
+						ipa_word += 'y';	
+					}
+					console.log ("raw_word[" + count + "]" + " : uCeC(s)0");
+				}
+				// uCeCC(s)0
+				else if (is_it_consonant (raw_word[count + 3]) && is_it_consonant (raw_word[count + 4]) && ((raw_word[count + 3] != raw_word[count + 4]) && !(raw_word[count + 3] == 'c' && raw_word[count + 4] == 'k')) && (raw_word[count + 5] === undefined || (raw_word[count + 5] == 's' && raw_word[count + 6] === undefined))) {
+					stress = true;
+					if (is_there_more_than_one_vowel_ignoring_last_e (word)) {
+						spt_word += 'Ü';
+						ipa_word += '<strong><u>y</u></strong>';	
+					}
+					else {
+						spt_word += 'ü';
+						ipa_word += 'y';	
+					}
+					console.log ("raw_word[" + count + "]" + " : uCeCC(s)0");
+				}
+				// uCe...
 				else {
 					spt_word += 'ü';
 					ipa_word += 'y';	
 				}							
-				console.log ("raw_word[" + count + "]" + " : uCe");
+				console.log ("raw_word[" + count + "]" + " : uCe...");
 			}
 			//uCV(s/0)
 			else if (is_it_consonant (raw_word[count + 1]) && is_it_vowel (raw_word[count + 2]) && (raw_word[count + 3] === undefined || (raw_word[count + 3] == 's' && raw_word[count + 4] === undefined))) {
@@ -3210,6 +3256,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "kontravEnt";
 		ipa_word = "kontʀɐv<strong><u>e</u></strong>nt";
 	}
+	else if (word == "controvers") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "kontrovErs";
+		ipa_word = "kontʀov<strong><u>e</u></strong>ʁs";
+	}
 	else if (word == "correcs") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "korrEks";
@@ -3600,6 +3651,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "distÜlt";
 		ipa_word = "dist<strong><u>y</u></strong>lt";
 	}
+	else if (word == "divers") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "divErs";
+		ipa_word = "div<strong><u>e</u></strong>ʁs";
+	}
 	else if (word == "divid") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "divId";
@@ -3814,6 +3870,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "ekstEns";
 		ipa_word = "ekst<strong><u>e</u></strong>ns";
+	}
+	else if (word == "extrovers") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "ekstrovErs";
+		ipa_word = "ekstʀov<strong><u>e</u></strong>ʁs";
 	}
 	else if (word == "f") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -4150,6 +4211,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "intërvEnt";
 		ipa_word = "intəʁv<strong><u>e</u></strong>nt";
 	}
+	else if (word == "introvers") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "introvErs";
+		ipa_word = "intʀov<strong><u>e</u></strong>ʁs";
+	}
 	else if (word == "invent") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "invEnt";
@@ -4464,6 +4530,21 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "owhAyows";
 		ipa_word = "oʊ̯h<strong><u>a</u></strong>ɪ̯oʊ̯s";
+	}
+	else if (word == "oiscrib") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "oyskrIb";
+		ipa_word = "oɪ̯skʀ<strong><u>i</u></strong>b";
+	}
+	else if (word == "oiscrips") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "oyskrIps";
+		ipa_word = "oɪ̯skʀ<strong><u>i</u></strong>ps";
+	}
+	else if (word == "oiscript") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "oyskrIpt";
+		ipa_word = "oɪ̯skʀ<strong><u>i</u></strong>pt";
 	}
 	else if (word == "oiscrisc") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
