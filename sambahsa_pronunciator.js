@@ -2,7 +2,7 @@
 **********************************************************************
 *** Author: Henrique Matheus da Silva Lima ***************************
 *** License: MIT *****************************************************
-*** Version: 1.80 ****************************************************
+*** Version: 1.85 ****************************************************
 **********************************************************************
 *********************************************************************/
 
@@ -2216,7 +2216,7 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 	
 		else if (raw_word[count] == 's') {
 			// VsV
-			if ((is_it_vowel_without_wy (raw_word[count - 1])) && (is_it_vowel_without_wy (raw_word[count + 1]))) {
+			if ((is_it_vowel_without_wy (raw_word[count - 1]) || ((is_it_consonant(raw_word[count - 2]) || raw_word[count - 2] == undefined) && raw_word[count - 1] == 'y')) && (is_it_vowel_without_wy (raw_word[count + 1]) || (raw_word[count + 1] == 'y' && (is_it_consonant(raw_word[count + 2]) || raw_word[count + 2] == undefined)))) {
 				spt_word += 'z';
 				ipa_word += 'z';
 				console.log ("raw_word[" + count + "]" + " : VsV");
