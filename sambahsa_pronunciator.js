@@ -2,7 +2,7 @@
 **********************************************************************
 *** Author: Henrique Matheus da Silva Lima ***************************
 *** License: MIT *****************************************************
-*** Version: 1.75 ****************************************************
+*** Version: 1.80 ****************************************************
 **********************************************************************
 *********************************************************************/
 
@@ -49,7 +49,7 @@ function is_there_more_than_one_vowel (input)
 			count++;
 		}
 		else if (word[count] == 'a') vowel++;
-		else if (word[count] == 'e' && (word[count + 1] == 'u' || word[count + 1] == 'o' || word[count + 1] == 'i' || word[count + 1] == 'y'))
+		else if (word[count] == 'e' && (word[count + 1] == 'u' || word[count + 1] == 'i' || word[count + 1] == 'y'))
 		{
 			vowel++;
 			count++;
@@ -126,7 +126,7 @@ function is_there_more_than_one_vowel_ignoring_last_e (input)
 			count++;
 		}
 		else if (word[count] == 'a') vowel++;
-		else if (word[count] == 'e' && (word[count + 1] == 'u' || word[count + 1] == 'o' || word[count + 1] == 'i' || word[count + 1] == 'y'))
+		else if (word[count] == 'e' && (word[count + 1] == 'u' || word[count + 1] == 'i' || word[count + 1] == 'y'))
 		{
 			vowel++;
 			count++;
@@ -140,7 +140,11 @@ function is_there_more_than_one_vowel_ignoring_last_e (input)
 		else if (word[count] == 'e' && word[count + 1] === undefined)
 		{
 			// we0 || ye0 || gne0
-			if (word[count - 1] == 'w' || word[count - 1] == 'y' || (word[count - 2] == 'g' && word[count - 1] == 'n')) { // recent code DELETE this comment after a lot of test
+			if (word[count - 1] == 'w' || word[count - 1] == 'y' || (word[count - 2] == 'g' && word[count - 1] == 'n')) {
+				vowel++;
+			}
+			// Cle0 (it's complicated for many people make a pronunciation ignoring this "e")
+			else if ((is_it_consonant(word[count - 2]) && word[count - 2] != 'l') && word[count - 1] == 'l') {
 				vowel++;
 			}
 			else {
@@ -302,7 +306,6 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {ipa_word += '<strong><u>a</u></strong>';}
 				else {ipa_word += 'a';}
 				stress = true;
-				count++; // For jumping the following consonant
 				console.log ("raw_word[" + count + "]" + " : aC=C(0/s)");
 			}
 			// ack(0/s0)
@@ -415,7 +418,6 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				else {ipa_word += 'ɛ';}
 				stress = true;
 				count++; // // For jumping the "i"
-				count++; // For jumping the following consonant
 				console.log ("raw_word[" + count + "]" + " : aiC=C(0/s)");
 			}
 			// aick(0/s0)
@@ -492,7 +494,6 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				ipa_word += '<strong><u>a</u></strong>ʊ̯';
 				stress = true;
 				count++; // // For jumping the "u"
-				count++; // For jumping the following consonant
 				console.log ("raw_word[" + count + "]" + " : auC=C(0/s)");
 			}
 			// auck(0/s0)
@@ -597,7 +598,6 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {ipa_word += '<strong><u>e</u></strong>';}
 				else {ipa_word += 'e';}
 				stress = true;
-				count++; // For jumping the following consonant
 				console.log ("raw_word[" + count + "]" + " : eC=C(0/s)");
 			}
 			// e[C=C]C0 . for words like "succeddt"
@@ -790,7 +790,6 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				else {ipa_word += 'ø';}
 				stress = true;
 				count++; // // For jumping the "u"
-				count++; // For jumping the following consonant
 				console.log ("raw_word[" + count + "]" + " : euC=C(0/s)");
 			}
 			// euck(0/s0)
@@ -900,6 +899,12 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				spt_word += 'e';
 				ipa_word += 'e';
 				console.log ("raw_word[" + count + "]" + " : The \"e\" is the first letter of the word")
+			}
+			// The "e" the last letter of the word, but it is preceded by an "l"
+			else if (is_there_more_than_one_vowel_ignoring_last_e (word) && (is_it_consonant(word[count - 2]) && word[count - 2] != 'l') && count == (word_length - 1) && raw_word[count - 1] == 'l') {
+				spt_word += 'ë';
+				ipa_word += 'ə';
+				console.log ("raw_word[" + count + "]" + " : le")
 			}
 			// The "e" the last letter of the word, does not appears and there is more other vowel
 			else if (is_there_more_than_one_vowel (word) && count == (word_length - 1) && !(raw_word[count - 2] == 'g' && raw_word[count - 1] == 'n')) {
@@ -1077,7 +1082,6 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {ipa_word += '<strong><u>i</u></strong>';}
 				else {ipa_word += 'i';}
 				stress = true;
-				count++; // For jumping the following consonant
 				console.log ("raw_word[" + count + "]" + " : iC=C(0/s)");
 			}
 			// ick(0/s0)
@@ -1225,7 +1229,6 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {ipa_word += '<strong><u>o</u></strong>';}
 				else {ipa_word += 'o';}
 				stress = true;
-				count++; // For jumping the following consonant
 				console.log ("raw_word[" + count + "]" + " : oC=C(0/s)");
 			}
 			// ock(0/s0)
@@ -1311,7 +1314,6 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				else {ipa_word += 'uː';}
 				stress = true;
 				count++; // // For jumping the "u"
-				count++; // For jumping the following consonant
 				console.log ("raw_word[" + count + "]" + " : ouC=C(0/s)");
 			}
 			// ouck(0/s0)
@@ -1448,7 +1450,6 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {ipa_word += '<strong><u>u</u></strong>';}
 				else {ipa_word += 'u';}
 				stress = true;
-				count++; // For jumping the following consonant
 				console.log ("raw_word[" + count + "]" + " : uC=C(0/s)");
 			}
 			// uck(0/s0)
@@ -1682,7 +1683,6 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 					if (is_there_more_than_one_vowel_ignoring_last_e (word)) {ipa_word += '<strong><u>y</u></strong>';}
 					else {ipa_word += 'y';}
 					stress = true;
-					count++; // For jumping the following consonant
 					console.log ("raw_word[" + count + "]" + " : CyC=C(0/s)");
 				}
 				// yck(0/s0)
@@ -2046,11 +2046,10 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				spt_word += 'n';
 				ipa_word += 'ŋ';
 			}
-			// IPA ng
-			else if (raw_word[count + 1] == 'g' && (raw_word[count + 2] === undefined || (is_it_consonant(raw_word[count + 2]) && !(raw_word[count + 2] == 'h' || raw_word[count + 2] == 'r' || raw_word[count + 2] == 'l')))) {
-				spt_word += 'ng';
+			// IPA ng(0/a/o/u)
+			else if (raw_word[count + 1] == 'g' && (raw_word[count + 2] === undefined || is_it_consonant(raw_word[count + 2]) || raw_word[count + 2] == 'a' || raw_word[count + 2] == 'o' || raw_word[count + 2] == 'u')) {
+				spt_word += 'n';
 				ipa_word += 'ŋ';
-				count++; // For jumping the "g"
 			}
 			// nn
 			else if (raw_word[count + 1] == 'n') {
