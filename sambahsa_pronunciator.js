@@ -2,7 +2,7 @@
 **********************************************************************
 *** Author: Henrique Matheus da Silva Lima ***************************
 *** License: MIT *****************************************************
-*** Version: 1.85 ****************************************************
+*** Version: 1.86 ****************************************************
 **********************************************************************
 *********************************************************************/
 
@@ -3574,6 +3574,16 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "dëtEnt";
 		ipa_word = "dət<strong><u>e</u></strong>nt";
 	}
+	else if (word == "detriment") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "dëtrImënt";
+		ipa_word = "dətʀ<strong><u>i</u></strong>mənt";
+	}
+	else if (word == "detriments") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "dëtrImënts";
+		ipa_word = "dətʀ<strong><u>i</u></strong>mənts";
+	}
 	else if (word == "differ") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "difEr";
@@ -4513,6 +4523,16 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "mizU:ris";
 		ipa_word = "miz<strong><u>u</u></strong>ːʀis";
+	}
+	else if (word == "monument") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "mOnümënt";
+		ipa_word = "m<strong><u>o</u></strong>nymənt";
+	}
+	else if (word == "monuments") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "mOnümënts";
+		ipa_word = "m<strong><u>o</u></strong>nymənts";
 	}
 	else if (word == "n") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
