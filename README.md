@@ -10,4 +10,4 @@ Just [click here](https://hmslima.github.io/JS-Sambahsapronunciator) to test JS 
 
 ## Download
 
-Just go to the [Releases page](https://github.com/hmslima/JS-Sambahsapronunciator/releases), then to the newest release, click in `Assets` if its content is not visible, click in the link `Source Code (zip)`, unzip the downloaded file and open the file main.html through your web browser
+Just go to the [Releases page](https://github.com/hmslima/JS-Sambahsapronunciator/releases), then to the newest release, click in `Assets` if its content is not visible, click in the link `Source Code (zip)`, unzip the downloaded file and open the file index.html through your web browser
