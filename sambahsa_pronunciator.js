@@ -2,7 +2,7 @@
 **********************************************************************
 *** Author: Henrique Matheus da Silva Lima ***************************
 *** License: MIT *****************************************************
-*** Version: 1.87 ****************************************************
+*** Version: 1.88 ****************************************************
 **********************************************************************
 *********************************************************************/
 
@@ -3861,8 +3861,8 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 	}
 	else if (word == "eros") { // Prev participle ios verb "erod"
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
-		spt_word = "erOs";
-		ipa_word = "eʀ<strong><u>o</u></strong>s";
+		spt_word = "Eros <sup>(sei tod est id proper nam)</sup> / erOs <sup>(sei tod est id prev participle ex \"erod\")</sup>";
+		ipa_word = "<strong><u>e</u></strong>ʀos <sup>(sei tod est id proper nam)</sup> / eʀ<strong><u>o</u></strong>s <sup>(sei tod est id prev participle ex \"erod\")</sup>";
 	}
 	else if (word == "establishment") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -5686,8 +5686,8 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 	document.getElementById(ipa_outputDiv).innerHTML += ipa_word;
 	
 	// Nor forget to clear the variables
-	spt_word = "";	
-	ipa_word = "";	
+	spt_word = "";
+	ipa_word = "";
 }
 
 function is_it_valid_char (character) {
