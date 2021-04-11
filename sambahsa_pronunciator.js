@@ -2,7 +2,7 @@
 **********************************************************************
 *** Author: Henrique Matheus da Silva Lima ***************************
 *** License: MIT *****************************************************
-*** Version: 1.88 ****************************************************
+*** Version: 1.90 ****************************************************
 **********************************************************************
 *********************************************************************/
 
@@ -2884,6 +2884,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "asortImënts";
 		ipa_word = "asoʁt<strong><u>i</u></strong>mənts";
 	}
+	else if (word == "autobus") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "Aotobus";
+		ipa_word = "<strong><u>a</u></strong>ʊ̯tobus";
+	}
 	else if (word == "b") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "be";
@@ -3243,6 +3248,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "konflIkts";
 		ipa_word = "konfl<strong><u>i</u></strong>kts";
+	}
+	else if (word == "confus") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "konfUs";
+		ipa_word = "konf<strong><u>u</u></strong>s";
 	}
 	else if (word == "connecticut") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
