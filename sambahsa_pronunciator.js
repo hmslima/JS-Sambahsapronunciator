@@ -2824,6 +2824,26 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "anEks";
 		ipa_word = "an<strong><u>e</u></strong>ks";
 	}
+	else if (word == "antigen") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "antidjEn";
+		ipa_word = "antid͡ʒ<strong><u>e</u></strong>n";
+	}
+	else if (word == "antigens") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "antidjEns";
+		ipa_word = "antid͡ʒ<strong><u>e</u></strong>ns";
+	}
+	else if (word == "antichrist") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "antikrIst";
+		ipa_word = "antikʀ<strong><u>i</u></strong>st";
+	}
+	else if (word == "antichrists") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "antikrIsts";
+		ipa_word = "antikʀ<strong><u>i</u></strong>sts";
+	}
 	else if (word == "arguments") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "argÜmënts";
