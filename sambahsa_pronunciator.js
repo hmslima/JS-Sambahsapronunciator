@@ -3284,6 +3284,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "kënÄtikëts";
 		ipa_word = "kən<strong><u>ɛ</u></strong>tɪkəts";
 	}
+	else if (word == "connex") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "konEks";
+		ipa_word = "kon<strong><u>e</u></strong>ks";
+	}
 	else if (word == "contradic") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "kontradIk";
@@ -3673,6 +3678,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "disErnt";
 		ipa_word = "dis<strong><u>e</u></strong>ʁnt";
+	}
+	else if (word == "disrespex") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "disrëspEks";
+		ipa_word = "disʀəsp<strong><u>e</u></strong>ks";
 	}
 	else if (word == "dissecs") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -5269,6 +5279,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "rëflEg";
 		ipa_word = "ʀəfl<strong><u>e</u></strong>g";
 	}
+	else if (word == "reflex") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "rëflEks";
+		ipa_word = "ʀəfl<strong><u>e</u></strong>ks";
+	}
 	else if (word == "rejec") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "rejEk";
@@ -5339,10 +5354,10 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "rëspEkts";
 		ipa_word = "ʀəsp<strong><u>e</u></strong>kts";
 	}
-	else if (word == "respects") {
+	else if (word == "respex") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
-		spt_word = "rëspEkts";
-		ipa_word = "ʀəsp<strong><u>e</u></strong>kts";
+		spt_word = "rëspEks";
+		ipa_word = "ʀəsp<strong><u>e</u></strong>ks";
 	}
 	else if (word == "ressentiment") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
