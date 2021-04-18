@@ -5664,6 +5664,16 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "ü";
 		ipa_word = "y";
 	}
+	else if (word == "yeleck") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "yëlEk";
+		ipa_word = "jəl<strong><u>e</u></strong>k";
+	}
+	else if (word == "yelecks") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "yëlEks";
+		ipa_word = "jəl<strong><u>e</u></strong>ks";
+	}
 	else if (word == "yoinkjiae") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "yoynkjiAy";
