@@ -351,6 +351,13 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				count++; // For jumping the "e"/"y"
 				console.log ("raw_word[" + count + "]" + " : a(e/y)C");
 			}
+			// a(e/y)V...
+			else if ((raw_word[count + 1] == 'e' || raw_word[count + 1] == 'y') && (is_it_vowel (raw_word[count + 2]))) {
+				spt_word += 'ay';
+				ipa_word += 'aɪ̯';
+				count++; // For jumping the "e"/"y"
+				console.log ("raw_word[" + count + "]" + " : a(e/y)C");
+			}
 			// aC(0/s0)
 			else if (is_it_consonant(raw_word[count + 1]) && raw_word[count + 1] != 's' && (raw_word[count + 2] === undefined || (raw_word[count + 2] == 's' && raw_word[count + 3] === undefined))) {
 				if (is_there_more_than_one_vowel_ignoring_last_e (word)) {spt_word += 'A';}
@@ -3979,6 +3986,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "ef";
 		ipa_word = "ef";
 	}
+	else if (word == "faq") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "ef a ku";
+		ipa_word = "ef a ku";
+	}
 	else if (word == "florida") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "flOrida";
@@ -3999,10 +4011,10 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "forEsts";
 		ipa_word = "foʀ<strong><u>e</u></strong>sts";
 	}
-	else if (word == "faq") {
+	else if (word == "fuego") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
-		spt_word = "ef a ku";
-		ipa_word = "ef a ku";
+		spt_word = "fwEgo";
+		ipa_word = "fw<strong><u>e</u></strong>go";
 	}
 	else if (word == "g") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -4403,6 +4415,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "Ayëwës";
 		ipa_word = "<strong><u>a</u></strong>ɪ̯əwəs";
+	}
+	else if (word == "izhar") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "idz(h)Ar";
+		ipa_word = "idz(h)<strong><u>a</u></strong>ʁ";
 	}
 	else if (word == "j") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -4806,8 +4823,8 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 	}
 	else if (word == "paris") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
-		spt_word = "parIs";
-		ipa_word = "pɐʀ<strong><u>i</u></strong>s";
+		spt_word = "pAris <sup>(mythologia)</sup> / parIs <sup>(sei tod est id land)</sup>";
+		ipa_word = "p<strong><u>a</u></strong>ʀis <sup>(mythologia)</sup> / pɐʀ<strong><u>i</u></strong>s <sup>(sei tod est id land)</sup>";
 	}
 	else if (word == "percent") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -4828,6 +4845,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "përfEkts";
 		ipa_word = "pəʁf<strong><u>e</u></strong>kts";
+	}
+	else if (word == "perhvdi") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "pEr(h)vdi";
+		ipa_word = "p<strong><u>e</u></strong>ʁ(h)vdi";
 	}
 	else if (word == "perigleg") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -4908,6 +4930,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "përvErts";
 		ipa_word = "pəʁv<strong><u>e</u></strong>ʁts";
+	}
+	else if (word == "pinocchio") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "pinOkyo";
+		ipa_word = "pin<strong><u>o</u></strong>kjo";
 	}
 	else if (word == "pipend") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -5188,6 +5215,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "provIs";
 		ipa_word = "pʀov<strong><u>i</u></strong>s";
+	}
+	else if (word == "puerto") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "pwErto";
+		ipa_word = "pw<strong><u>e</u></strong>ʁto";
 	}
 	else if (word == "q") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
