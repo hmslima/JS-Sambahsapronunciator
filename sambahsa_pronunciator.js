@@ -2851,6 +2851,16 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "antikrIsts";
 		ipa_word = "antikʀ<strong><u>i</u></strong>sts";
 	}
+	else if (word == "anvers") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "anvErs";
+		ipa_word = "anv<strong><u>e</u></strong>ʁs";
+	}
+	else if (word == "anverst") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "anvErst";
+		ipa_word = "anv<strong><u>e</u></strong>ʁst";
+	}
 	else if (word == "arguments") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "argÜmënts";
@@ -5600,6 +5610,21 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "surrEg";
 		ipa_word = "sur<strong><u>e</u></strong>g";
+	}
+	else if (word == "suspec") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "suspEk";
+		ipa_word = "susp<strong><u>e</u></strong>k";
+	}
+	else if (word == "suspecs") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "suspEks";
+		ipa_word = "susp<strong><u>e</u></strong>ks";
+	}
+	else if (word == "suspect") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "suspEkt";
+		ipa_word = "susp<strong><u>e</u></strong>kt";
 	}
 	else if (word == "sydney") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
