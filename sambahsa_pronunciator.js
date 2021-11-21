@@ -2926,6 +2926,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "Aotobus";
 		ipa_word = "<strong><u>a</u></strong>ʊ̯tobus";
 	}
+	else if (word == "avis") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "avIs";
+		ipa_word = "av<strong><u>i</u></strong>s";
+	}
 	else if (word == "b") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "be";
@@ -3176,6 +3181,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "kolEg";
 		ipa_word = "kol<strong><u>e</u></strong>g";
 	}
+	else if (word == "collis") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "kolIs";
+		ipa_word = "kol<strong><u>i</u></strong>s";
+	}
 	else if (word == "complement") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "komplEmënt";
@@ -3215,6 +3225,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "komprëhEns";
 		ipa_word = "kompʀəh<strong><u>e</u></strong>ns";
+	}
+	else if (word == "compris") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "komprIs";
+		ipa_word = "kompʀ<strong><u>i</u></strong>s";
 	}
 	else if (word == "concept") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -3291,6 +3306,16 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "konfUs";
 		ipa_word = "konf<strong><u>u</u></strong>s";
 	}
+	else if (word == "connect") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "konEkt";
+		ipa_word = "kon<strong><u>e</u></strong>kt";
+	}
+	else if (word == "connects") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "konEkts";
+		ipa_word = "kon<strong><u>e</u></strong>kts";
+	}
 	else if (word == "connecticut") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "kënÄtikët";
@@ -3340,6 +3365,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "kontrovErs";
 		ipa_word = "kontʀov<strong><u>e</u></strong>ʁs";
+	}
+	else if (word == "contus") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "kontUs";
+		ipa_word = "kont<strong><u>u</u></strong>s";
 	}
 	else if (word == "correcs") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -3518,7 +3548,7 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 	}
 	else if (word == "deris") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
-		spt_word = "dërId";
+		spt_word = "dërIs";
 		ipa_word = "dəʀ<strong><u>i</u></strong>s";
 	}
 	else if (word == "desaddic") {
@@ -3806,6 +3836,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "elEks";
 		ipa_word = "el<strong><u>e</u></strong>ks";
 	}
+	else if (word == "embras") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "embrAs";
+		ipa_word = "embʀ<strong><u>a</u></strong>s";
+	}
 	else if (word == "eleg") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "elEg";
@@ -3916,6 +3951,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "enkrEws";
 		ipa_word = "eŋkʀ<strong><u>e</u></strong>ʊ̯s";
 	}
+	else if (word == "entrepris") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "entrëprIs";
+		ipa_word = "entʀəpʀ<strong><u>i</u></strong>s";
+	}
 	else if (word == "eros") { // Prev participle ios verb "erod"
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "Eros <sup>(sei tod est id proper nam)</sup> / erOs <sup>(sei tod est id prev participle ex \"erod\")</sup>";
@@ -3991,6 +4031,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "ekstrovErs";
 		ipa_word = "ekstʀov<strong><u>e</u></strong>ʁs";
 	}
+	else if (word == "extus") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "ekstUs";
+		ipa_word = "ekst<strong><u>u</u></strong>s";
+	}
 	else if (word == "f") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "ef";
@@ -4000,6 +4045,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "ef a ku";
 		ipa_word = "ef a ku";
+	}
+	else if (word == "fingherstus") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "fingërstUs";
+		ipa_word = "fiŋgəʁst<strong><u>u</u></strong>s";
 	}
 	else if (word == "florida") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -4231,6 +4281,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "infrEks";
 		ipa_word = "infʀ<strong><u>e</u></strong>ks";
 	}
+	else if (word == "infus") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "infUs";
+		ipa_word = "inf<strong><u>u</u></strong>s";
+	}
 	else if (word == "ingest") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "indjEst";
@@ -4305,6 +4360,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "intrUs";
 		ipa_word = "intʀ<strong><u>u</u></strong>s";
+	}
+	else if (word == "instus") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "instUs";
+		ipa_word = "inst<strong><u>u</u></strong>s";
 	}
 	else if (word == "insurrecs") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -4610,6 +4670,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "nëglEkt";
 		ipa_word = "nəgl<strong><u>e</u></strong>kt";
+	}
+	else if (word == "nequer") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "nëkEr";
+		ipa_word = "nək<strong><u>e</u></strong>ʁ";
 	}
 	else if (word == "niebtreb") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -5231,6 +5296,16 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "pwErto";
 		ipa_word = "pw<strong><u>e</u></strong>ʁto";
 	}
+	else if (word == "puertos") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "pwErtos";
+		ipa_word = "pw<strong><u>e</u></strong>ʁtos";
+	}
+	else if (word == "pumpes") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "pumps <sup>(id substantive)</sup> / pumpEs <sup>(id prev participe)</sup>";
+		ipa_word = "pumps <sup>(id substantive)</sup> / pump<strong><u>e</u></strong>s <sup>(id prev participe)</sup>";
+	}
 	else if (word == "q") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "ku";
@@ -5385,6 +5460,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "rëzIdt";
 		ipa_word = "ʀəz<strong><u>i</u></strong>dt";	
+	}
+	else if (word == "resis") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "rëzIs";
+		ipa_word = "ʀəz<strong><u>i</u></strong>s";	
 	}
 	else if (word == "respect") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
@@ -5581,6 +5661,26 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "sugdjEsts";
 		ipa_word = "sugd͡ʒ<strong><u>e</u></strong>sts";
 	}
+	else if (word == "supervid") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "süpërvId";
+		ipa_word = "sypəʁv<strong><u>i</u></strong>d";
+	}
+	else if (word == "supervids") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "süpërvIds";
+		ipa_word = "sypəʁv<strong><u>i</u></strong>ds";
+	}
+	else if (word == "supervidt") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "süpërvIdt";
+		ipa_word = "sypəʁv<strong><u>i</u></strong>dt";
+	}
+	else if (word == "supervis") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "süpërvIs";
+		ipa_word = "sypəʁv<strong><u>i</u></strong>s";
+	}
 	else if (word == "supoglecs") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "supoglEks";
@@ -5595,6 +5695,11 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "supoglEg";
 		ipa_word = "supogl<strong><u>e</u></strong>g";
+	}
+	else if (word == "surpris") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "surprIs";
+		ipa_word = "suʁpʀ<strong><u>i</u></strong>s";
 	}
 	else if (word == "surrecs") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
