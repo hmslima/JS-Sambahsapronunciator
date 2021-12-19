@@ -2,7 +2,7 @@
 **********************************************************************
 *** Author: Henrique Matheus da Silva Lima ***************************
 *** License: MIT *****************************************************
-*** Version: 1.97 ****************************************************
+*** Version: 1.98 ****************************************************
 **********************************************************************
 *********************************************************************/
 
@@ -3050,6 +3050,21 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "bëpElps";
 		ipa_word = "bəp<strong><u>e</u></strong>lps";
+	}
+	else if (word == "beprement") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "bëprEmënt";
+		ipa_word = "bəpʀ<strong><u>e</u></strong>mənt";
+	}
+	else if (word == "beprems") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "bëprEms";
+		ipa_word = "bəpʀ<strong><u>e</u></strong>ms";
+	}
+	else if (word == "bepremt") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "bëprEmt";
+		ipa_word = "bəpʀ<strong><u>e</u></strong>mt";
 	}
 	else if (word == "berect") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
