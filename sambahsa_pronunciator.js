@@ -2,7 +2,7 @@
 **********************************************************************
 *** Author: Henrique Matheus da Silva Lima ***************************
 *** License: MIT *****************************************************
-*** Version: 1.98 ****************************************************
+*** Version: 1.99 ****************************************************
 **********************************************************************
 *********************************************************************/
 
@@ -2926,6 +2926,21 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		spt_word = "Aotobus";
 		ipa_word = "<strong><u>a</u></strong>ʊ̯tobus";
 	}
+    else if (word == "avid") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "avId";
+		ipa_word = "av<strong><u>i</u></strong>d";
+	}
+    else if (word == "avids") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "avIdz";
+		ipa_word = "av<strong><u>i</u></strong>dz";
+	}
+    else if (word == "avidt") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "avIdt";
+		ipa_word = "av<strong><u>i</u></strong>dt";
+	}
 	else if (word == "avis") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "avIs";
@@ -3210,6 +3225,21 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "kolEg";
 		ipa_word = "kol<strong><u>e</u></strong>g";
+	}
+    else if (word == "collid") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "kolId";
+		ipa_word = "kol<strong><u>i</u></strong>d";
+	}
+    else if (word == "collids") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "kolIdz";
+		ipa_word = "kol<strong><u>i</u></strong>dz";
+	}
+    else if (word == "collidt") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "kolIdt";
+		ipa_word = "kol<strong><u>i</u></strong>dt";
 	}
 	else if (word == "collis") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
