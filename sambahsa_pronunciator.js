@@ -2,7 +2,7 @@
 **********************************************************************
 *** Author: Henrique Matheus da Silva Lima ***************************
 *** License: MIT *****************************************************
-*** Version: 1.99 ****************************************************
+*** Version: 2.01 ****************************************************
 **********************************************************************
 *********************************************************************/
 
@@ -1179,9 +1179,17 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				console.log ("raw_word[" + count + "]" + " : -ique0");
 			}
 			else {
-				spt_word += 'i';
-				ipa_word += 'i';
-				console.log ("raw_word[" + count + "]" + " : i");
+				if (((is_it_consonant (raw_word[count - 2]) && raw_word[count - 2] != 'q') && raw_word[count - 1] == 'u' && raw_word[count + 1] === undefined ) || ((is_it_consonant (raw_word[count - 2]) && raw_word[count - 2] != 'q') && raw_word[count - 1] == 'u' && raw_word[count + 1] == 's' && raw_word[count + 2] === undefined)) {
+					spt_word += 'I';
+					ipa_word += '<strong><u>i</u></strong>';
+					stress = true;
+					console.log ("raw_word[" + count + "]" + " : -Cui(s)0");
+				}
+				else {
+					spt_word += 'i';
+					ipa_word += 'i';
+					console.log ("raw_word[" + count + "]" + " : i");
+				}
 			}
 			
 		}
@@ -1383,16 +1391,24 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 				}
 				// uCeC(s)0
 				else if (is_it_consonant (raw_word[count + 3]) && (raw_word[count + 4] === undefined || (raw_word[count + 4] == 's' && raw_word[count + 5] === undefined))) {
-					stress = true;
-					if (is_there_more_than_one_vowel_ignoring_last_e (word)) {
-						spt_word += 'Ü';
-						ipa_word += '<strong><u>y</u></strong>';	
+					// uCess0
+					if (raw_word[count + 3] == 's' && raw_word[count + 4] == 's') {
+							spt_word += 'ü';
+							ipa_word += 'y';
+							console.log ("raw_word[" + count + "]" + " : uCess0");
 					}
 					else {
-						spt_word += 'ü';
-						ipa_word += 'y';	
+						stress = true;
+						if (is_there_more_than_one_vowel_ignoring_last_e (word)) {
+							spt_word += 'Ü';
+							ipa_word += '<strong><u>y</u></strong>';	
+						}
+						else {
+							spt_word += 'ü';
+							ipa_word += 'y';	
+						}
+						console.log ("raw_word[" + count + "]" + " : uCeC(s)0");
 					}
-					console.log ("raw_word[" + count + "]" + " : uCeC(s)0");
 				}
 				// uCeCC(s)0
 				else if (is_it_consonant (raw_word[count + 3]) && is_it_consonant (raw_word[count + 4]) && ((raw_word[count + 3] != raw_word[count + 4]) && !(raw_word[count + 3] == 'c' && raw_word[count + 4] == 'k')) && (raw_word[count + 5] === undefined || (raw_word[count + 5] == 's' && raw_word[count + 6] === undefined))) {
@@ -4125,6 +4141,16 @@ function pronunciator (word, spt_outputDiv, ipa_outputDiv) {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
 		spt_word = "ef a ku";
 		ipa_word = "ef a ku";
+	}
+	else if (word == "feelik") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "f<strong><u>e</u></strong>əlik";
+		ipa_word = "fEëlik";
+	}
+	else if (word == "feeliks") {
+		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
+		spt_word = "f<strong><u>e</u></strong>əliks";
+		ipa_word = "fEëliks";
 	}
 	else if (word == "fingherstus") {
 		console.log ("%% The word \"" + word + "\" needed a ready made transcription %%");
